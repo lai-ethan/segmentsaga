@@ -1,7 +1,6 @@
 from fastapi import FastAPI
+from app.api.v1.routes import router
 
-app = FastAPI()
+app = FastAPI(title="SegmentSaga")
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to SegmentSaga!"}
+app.include_router(router)

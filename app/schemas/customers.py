@@ -1,3 +1,4 @@
+# creates our pydantic models/schemas for the Customer model (data validation/serialization from sql to json)
 from pydantic import BaseModel
 
 # --- CustomerCreate Schema ---
@@ -13,6 +14,7 @@ class SegmentRead(BaseModel):
     id: int
     name: str
 
+    # lets pydantic convert from sqlalchemy models (from models.py) into pydantic JSON; required when reading from the database
     class Config:
         orm_mode = True
 
